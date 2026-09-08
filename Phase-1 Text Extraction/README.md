@@ -5,41 +5,18 @@ An automated computer vision and OCR pipeline for lecture blackboard tracking, v
 ---
 
 ## Technical Architecture & Workflow
-
-
-┌───────────────────────────┐
-│     Capture Frame 1       │ ── Base Snapshot (e.g., frame_01.png)
-└─────────────┬─────────────┘
-              │
-              ▼
-┌───────────────────────────┐
-│     Capture Frame 2       │ ── Updated Snapshot (e.g., frame_02.png)
-└─────────────┬─────────────┘
-              │
-              ▼
-┌───────────────────────────┐
-│  Visual Change Detection  │ ── Gaussian Blur + AbsDiff (Threshold ≥ 2.0%)
-└─────────────┬─────────────┘
-              │
-      ┌───────┴───────┐
-      │               │
- [Change < 2%]   [Change ≥ 2%]
-      │               │
-      ▼               ▼
-   (Skip)     ┌───────────────────────────┐
-              │ EasyOCR Text Extraction   │ ── Reads text lines & bounding boxes
-              └─────────────┬─────────────┘
-                            │
-                            ▼
-              ┌───────────────────────────┐
-              │   difflib Delta Engine    │ ── Isolates newly added lines (+)
-              └─────────────┬─────────────┘
-                            │
-                            ▼
-              ┌───────────────────────────┐
-              │ Output File Logger (.txt) │ ── Appends entry to 'lecture_notes.txt'
-              └───────────────────────────┘
-              
+```mermaid
+flowchart TD
+    A["Capture Frame 1<br><i>(Base Snapshot: frame_01.png)</i>"] --> B["Capture Frame 2<br><i>(Updated Snapshot: frame_02.png)</i>"]
+    B --> C["Visual Change Detection<br><i>(Gaussian Blur + AbsDiff)</i>"]
+    C --> D{"Change Ratio"}
+    
+    D -- "Change < 2.0%" --> E["Skip Processing"]
+    D -- "Change ≥ 2.0%" --> F["EasyOCR Text Extraction<br><i>(Reads lines & bounding boxes)</i>"]
+    
+    F --> G["difflib Delta Engine<br><i>(Isolates newly added lines '+')</i>"]
+    G --> H["Output File Logger<br><i>(Appends to lecture_notes.txt)</i>"]
+```
 ---
 
 ## Environment Setup & Requirements
