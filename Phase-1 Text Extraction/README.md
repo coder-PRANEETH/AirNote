@@ -5,6 +5,8 @@ An automated computer vision and OCR pipeline for lecture blackboard tracking, v
 ---
 
 ## Technical Architecture & Workflow
+
+
 ┌───────────────────────────┐
 │     Capture Frame 1       │ ── Base Snapshot (e.g., frame_01.png)
 └─────────────┬─────────────┘
@@ -37,6 +39,7 @@ An automated computer vision and OCR pipeline for lecture blackboard tracking, v
               ┌───────────────────────────┐
               │ Output File Logger (.txt) │ ── Appends entry to 'lecture_notes.txt'
               └───────────────────────────┘
+              
 ---
 
 ## Environment Setup & Requirements
