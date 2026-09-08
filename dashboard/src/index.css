@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-airnote-border;
+  }
+
+  body {
+    @apply bg-airnote-bg text-airnote-text font-sans antialiased;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-airnote-border rounded-full;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-airnote-panel border border-airnote-border;
+  }
+
+  .tech-label {
+    @apply font-mono text-[10px] uppercase tracking-[0.14em] text-airnote-muted;
+  }
+
+  .status-dot {
+    @apply inline-block w-1.5 h-1.5 rounded-full;
+  }
+
+  .status-dot-active {
+    @apply bg-airnote-accent animate-pulse-soft;
+  }
+
+  .status-dot-live {
+    @apply bg-airnote-live animate-pulse-soft;
+  }
+
+  .instrument-row {
+    @apply flex items-center gap-2 font-mono text-[11px];
+  }
+}
