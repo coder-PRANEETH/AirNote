@@ -23,13 +23,13 @@ export default {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
-        pulse-soft: 'pulse-soft 2s ease-in-out infinite',
-        flow: 'flow 2.5s ease-in-out infinite',
-        scan: 'scan 3s linear infinite',
-        fade-in: 'fade-in 0.4s ease-out',
-        slide-up: 'slide-up 0.35s ease-out',
-        board-flash: 'board-flash 0.6s ease-out',
-      },
+  'pulse-soft': 'pulse-soft 2s ease-in-out infinite',
+  flow: 'flow 2.5s ease-in-out infinite',
+  scan: 'scan 3s linear infinite',
+  'fade-in': 'fade-in 0.4s ease-out',
+  'slide-up': 'slide-up 0.35s ease-out',
+  'board-flash': 'board-flash 0.6s ease-out',
+},
       keyframes: {
         'pulse-soft': {
           '0%, 100%': { opacity: '1' },
