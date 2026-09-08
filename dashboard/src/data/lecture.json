@@ -1,0 +1,54 @@
+{
+  "title": "Physics 101 — Newton's Laws",
+  "duration": 68,
+  "speech": [
+    {
+      "t": 21,
+      "text": "Newton's second law states that force is equal to mass times acceleration."
+    },
+    {
+      "t": 35,
+      "text": "Now let's rearrange the equation to find acceleration."
+    },
+    {
+      "t": 48,
+      "text": "This gives us acceleration equals force divided by mass."
+    },
+    {
+      "t": 62,
+      "text": "So a heavier object needs more force for the same acceleration."
+    }
+  ],
+  "board": [
+    {
+      "t": 25,
+      "erased": false,
+      "lines": [{ "kind": "heading", "text": "Newton's Second Law" }]
+    },
+    {
+      "t": 30,
+      "erased": false,
+      "lines": [
+        { "kind": "heading", "text": "Newton's Second Law" },
+        { "kind": "equation", "text": "F = ma" }
+      ]
+    },
+    {
+      "t": 42,
+      "erased": false,
+      "lines": [
+        { "kind": "heading", "text": "Newton's Second Law" },
+        { "kind": "equation", "text": "F = ma" },
+        { "kind": "diagram", "text": "block-arrow" }
+      ]
+    },
+    {
+      "t": 50,
+      "erased": true,
+      "lines": [
+        { "kind": "heading", "text": "Rearranged" },
+        { "kind": "equation", "text": "a = F / m" }
+      ]
+    }
+  ]
+}
