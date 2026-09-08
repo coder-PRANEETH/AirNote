@@ -8,39 +8,35 @@ An automated computer vision and OCR pipeline for lecture blackboard tracking, v
 ┌───────────────────────────┐
 │     Capture Frame 1       │ ── Base Snapshot (e.g., frame_01.png)
 └─────────────┬─────────────┘
-│
-▼
+              │
+              ▼
 ┌───────────────────────────┐
 │     Capture Frame 2       │ ── Updated Snapshot (e.g., frame_02.png)
 └─────────────┬─────────────┘
-│
-▼
+              │
+              ▼
 ┌───────────────────────────┐
 │  Visual Change Detection  │ ── Gaussian Blur + AbsDiff (Threshold ≥ 2.0%)
 └─────────────┬─────────────┘
-│
-┌───────┴───────┐
-│               │
-[Change < 2%]   [Change ≥ 2%]
-│               │
-▼               ▼
-(Skip)     ┌───────────────────────────┐
-│ EasyOCR Text Extraction   │ ── Reads text lines & bounding boxes
-└─────────────┬─────────────┘
-│
-▼
-┌───────────────────────────┐
-│   difflib Delta Engine    │ ── Isolates newly added lines (+)
-└─────────────┬─────────────┘
-│
-▼
-
-
-┌───────────────────────────┐
-│ Output File Logger (.txt) │ ── Appends entry to 'lecture_notes.txt'
-└───────────────────────────┘
-
-
+              │
+      ┌───────┴───────┐
+      │               │
+ [Change < 2%]   [Change ≥ 2%]
+      │               │
+      ▼               ▼
+   (Skip)     ┌───────────────────────────┐
+              │ EasyOCR Text Extraction   │ ── Reads text lines & bounding boxes
+              └─────────────┬─────────────┘
+                            │
+                            ▼
+              ┌───────────────────────────┐
+              │   difflib Delta Engine    │ ── Isolates newly added lines (+)
+              └─────────────┬─────────────┘
+                            │
+                            ▼
+              ┌───────────────────────────┐
+              │ Output File Logger (.txt) │ ── Appends entry to 'lecture_notes.txt'
+              └───────────────────────────┘
 ---
 
 ## Environment Setup & Requirements
